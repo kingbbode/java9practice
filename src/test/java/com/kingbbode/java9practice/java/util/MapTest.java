@@ -1,7 +1,6 @@
-package com.kingbbode.java9practice;
+package com.kingbbode.java9practice.java.util;
 
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Map;
@@ -17,11 +16,6 @@ import static org.hamcrest.core.Is.is;
 public class MapTest {
 
     private Map<String, String> map;
-
-    @Before
-    public void setUp() throws Exception {
-        System.out.println("구아바없이 맵을 한번에 하다니!! JAVA 9 !!");
-    }
 
     @Test
     public void of는_최대_10개(){
@@ -61,11 +55,11 @@ public class MapTest {
                         Map.entry("key13", "value13"),
                         Map.entry("key14", "value14")
                 );
-        assertThat(this.map.size(), is(14));
+        assertThat(map.size(), is(14));
     }
 
     @Test
-    public void toEntries에_배열넘겨보기() throws Exception {
+    public void toEntries에_가변인자를_넘길_수_있으니_스트림을_이용해서() throws Exception {
         map =
                 Map.ofEntries(
                         IntStream.range(1, 100)
@@ -75,7 +69,6 @@ public class MapTest {
                                 .toArray((IntFunction<Map.Entry<String, String>[]>) Map.Entry[]::new)
                 );
         assertThat(map.size(), is(99));
-
     }
 
     @After

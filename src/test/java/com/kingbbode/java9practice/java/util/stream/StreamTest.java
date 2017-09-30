@@ -12,6 +12,7 @@ import java.util.stream.Stream;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.notNullValue;
 
 /**
  * Created by YG-MAC on 2017. 9. 29..
@@ -78,6 +79,13 @@ public class StreamTest {
             System.out.println("key : " + key + ",value : " + value);
         });
         list = new ArrayList<>(map.keySet());
+    }
+
+    @Test
+    public void null을_허용하는_ofNullable() throws Exception {
+        list = Stream.<Integer>ofNullable(null).collect(Collectors.toList());
+        assertThat(list, notNullValue());
+        assertThat(list.size(), is(0));
     }
 
     @After

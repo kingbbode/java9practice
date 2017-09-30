@@ -2,8 +2,24 @@
 
 ### 해볼 것
 
-1. new Collection Utils
+#### 1단계
 
-2. new Stream Utils
+- Collections Improvements
 
-3. Module System
+- Stream Improvements
+
+- Optional Improvements
+
+- CompletableFuture API Enhancements
+
+- try-with-resources Improvement
+
+- Private Interface Method
+
+- Diamond Operator
+
+#### 2단계
+
+- Reactive Streams – Flow API
+
+- Module System

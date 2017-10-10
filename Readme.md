@@ -2,7 +2,7 @@
 
 ### 해볼 것
 
-#### 1단계
+#### 한 것
 
 - Collections Improvements
 
@@ -16,9 +16,7 @@
 
 - Private Interface Method
 
-- Diamond Operator
-
-#### 2단계
+#### TODO
 
 - Reactive Streams – Flow API
 

@@ -3,9 +3,16 @@ package com.kingbbode.java9practice.java.util;
 import org.junit.After;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.toSet;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -21,6 +28,11 @@ public class SetTest {
         set = Set.of(
                 1,2,3,4,5,6,7,8,9,10,11
         );
+
+        /*
+            Collections.unmodifiableSet(new HashSet<>(Arrays.asList(1,2,3,4,5,6,7,8,9,10,11)));
+            Stream.of(1,2,3,4,5,6,7,8,9,10,11).collect(collectingAndThen(toSet(),Collections::unmodifiableSet));
+         */
         assertThat(set.size(), is(11));
     }
 
@@ -31,6 +43,9 @@ public class SetTest {
                         .boxed()
                         .toArray(Integer[]::new)
         );
+        /*
+            IntStream.range(1, 100).boxed().collect(collectingAndThen(toSet(),Collections::unmodifiableSet));
+        */
         assertThat(set.size(), is(99));
     }
 

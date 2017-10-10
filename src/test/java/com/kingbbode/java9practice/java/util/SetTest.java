@@ -3,16 +3,9 @@ package com.kingbbode.java9practice.java.util;
 import org.junit.After;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.collectingAndThen;
-import static java.util.stream.Collectors.toSet;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -49,8 +42,16 @@ public class SetTest {
         assertThat(set.size(), is(99));
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void 중복을_허용하지_않는다() {
+        set = Set.of(1, 2, 3, 1);
+    }
+
     @After
     public void tearDown() throws Exception {
+        if(set == null) {
+            return;
+        }
         set.forEach(System.out::println);
     }
 }

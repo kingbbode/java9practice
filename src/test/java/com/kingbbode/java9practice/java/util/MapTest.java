@@ -71,8 +71,21 @@ public class MapTest {
         assertThat(map.size(), is(99));
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void 키_중복을_허용하지_않는다() throws Exception {
+        Map.of(
+                "key1", "value1",
+                "key2", "value1",
+                "key3", "value1",
+                "key1", "value1"
+        );
+    }
+
     @After
     public void tearDown() throws Exception {
+        if(map == null){
+            return;
+        }
         map.forEach((key, value) -> System.out.println(key + " : " + value));
     }
 }

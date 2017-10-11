@@ -1,12 +1,18 @@
 package com.kingbbode.java9practice.java.util;
 
+import javafx.util.Pair;
 import org.junit.After;
 import org.junit.Test;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.function.IntFunction;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.toMap;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -55,7 +61,43 @@ public class MapTest {
                         Map.entry("key13", "value13"),
                         Map.entry("key14", "value14")
                 );
-        assertThat(map.size(), is(14));
+
+        /*
+        
+        Map<String, String> map = new HashMap<>();
+        map.put("key1", "value1");
+        map.put("key2", "value2");
+        map.put("key3", "value3");
+        map.put("key4", "value4");
+        map.put("key5", "value5");
+        map.put("key6", "value6");
+        map.put("key7", "value7");
+        map.put("key8", "value8");
+        map.put("key9", "value9");
+        map.put("key10", "value10");
+        map.put("key11", "value11");
+        map.put("key12", "value12");
+        map.put("key13", "value13");
+        map.put("key14", "value14");
+        Collections.unmodifiableMap(map);
+        
+        Stream.of(
+                new Pair<>("key1", "value1"),
+                new Pair<>("key2", "value2"),
+                new Pair<>("key3", "value3"),
+                new Pair<>("key4", "value4"),
+                new Pair<>("key5", "value5"),
+                new Pair<>("key6", "value6"),
+                new Pair<>("key7", "value7"),
+                new Pair<>("key8", "value8"),
+                new Pair<>("key9", "value9"),
+                new Pair<>("key10", "value10"),
+                new Pair<>("key11", "value11"),
+                new Pair<>("key12", "value12"),
+                new Pair<>("key13", "value13"),
+                new Pair<>("key14", "value14")
+            ).collect(collectingAndThen(toMap(Pair::getKey, Pair::getValue),Collections::unmodifiableMap));
+        */
     }
 
     @Test
